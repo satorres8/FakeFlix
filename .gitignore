@@ -1,0 +1,46 @@
+# ========================
+# Archivos y carpetas de sistema
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# Archivos de log y temporales
+# ========================
+*.log
+*.tmp
+*.bak
+
+# ========================
+# Configuraciones de IDEs y editores
+# ========================
+.vscode/
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ========================
+# Directorios de compilación y salida
+# ========================
+**/target/
+**/build/
+**/out/
+
+# ========================
+# Maven Wrapper (asegúrate de NO ignorar los scripts y la carpeta .mvn)
+# ========================
+!mvnw
+!mvnw.cmd
+!.mvn/
+
+# ========================
+# Frontend (Node.js / React, etc.)
+# ========================
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
+# ========================
+# Otros archivos temporales o específicos del proyecto
+# ========================
