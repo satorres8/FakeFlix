@@ -1,9 +1,8 @@
 package com.example.fakeflix.repository;
 
-import com.example.fakeflix.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.fakeflix.model.User;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-    // Ejemplo: buscar usuario por nombre de usuario o email
-    // Optional<User> findByUsername(String username);
+    // No es necesario definir un método adicional, ya que findAll() ya lo trae JpaRepository.
 }
