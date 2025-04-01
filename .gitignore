@@ -1,3 +1,12 @@
+# =====================================================
+# NOTA: Para evitar warnings de LF/CRLF, crea un archivo
+# .gitattributes en la raíz con el siguiente contenido:
+#
+#   * text=auto eol=lf
+#
+# Esto forzará a Git a normalizar los finales de línea a LF.
+# =====================================================
+
 # ========================
 # Archivos y carpetas de sistema
 # ========================
