@@ -1,28 +1,67 @@
 .movieRow {
-    margin: 20px 0;
-    color: #fff;
-  }
-  
-  .movieRow h2 {
-    margin-left: 20px;
-  }
-  
-  .movieRow__posters {
-    display: flex;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    padding: 20px;
-  }
-  
-  .movieRow__poster {
-    width: 200px;
-    object-fit: contain;
-    margin-right: 10px;
-    transition: transform 450ms;
-    cursor: pointer;
-  }
-  
-  .movieRow__poster:hover {
-    transform: scale(1.08);
-  }
-  
+  margin: 20px 0;
+  color: #fff;
+  position: relative;
+}
+
+.movieRow h2 {
+  margin-left: 20px;
+}
+
+.movieRow__wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.movieRow__container {
+  overflow: hidden;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.movieRow__posters {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.movieRow__item {
+  flex: none;
+  width: 200px;  /* Ancho de cada película */
+  margin-right: 10px; /* Espacio entre películas */
+}
+
+.movieRow__poster {
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.movieRow__poster:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para las flechas */
+.movieRow__arrow {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 10px;
+  z-index: 1;
+  transition: opacity 0.2s ease;
+}
+
+.movieRow__arrow:hover {
+  opacity: 0.7;
+}
+
+.movieRow__arrow--left {
+  margin-right: 10px;
+}
+
+.movieRow__arrow--right {
+  margin-left: 10px;
+}
