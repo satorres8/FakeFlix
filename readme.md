@@ -1,4 +1,3 @@
 # Work In Progress
-<video controls>
-  <source src="CurrentState.mp4" type="video/mp4">
-</video>
+[VIDEO](https://www.youtube.com/watch?v=LBP8kEkWdiA&ab_channel=Sergio%C3%81vilaTorres)
+![img](assets/img1.png)
