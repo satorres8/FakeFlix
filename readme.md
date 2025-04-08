@@ -1,2 +1,4 @@
-# WORK IN PROGRESS 
-![img](assets/img1.png)
+# Work In Progress
+<video controls>
+  <source src="CurrentState.mp4" type="video/mp4">
+</video>
