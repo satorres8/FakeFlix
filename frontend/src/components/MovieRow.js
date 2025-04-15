@@ -6,10 +6,12 @@ const MovieRow = ({ title, categoryName }) => {
   const [movies, setMovies] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const itemsPerSlide = 5;
-  // Ancho de cada item (imagen + margen); ajusta si es necesario (200px + 10px margen = 210px)
-  const itemWidth = 210;
-  
-  // Referencia al contenedor para controlar el ancho (opcional, para futuras mejoras)
+  const itemWidth = 210; // Ancho + margen (ajústalo a tus necesidades)
+
+  // Estado para mostrar u ocultar el reproductor
+  const [showPlayer, setShowPlayer] = useState(false);
+
+  // Referencia al contenedor (por si quieres calcular ancho dinámico, etc.)
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -23,32 +25,43 @@ const MovieRow = ({ title, categoryName }) => {
       });
   }, [categoryName]);
 
+  // Maneja la flecha de siguiente
   const handleNext = () => {
     let newIndex = currentIndex + itemsPerSlide;
     if (newIndex >= movies.length) {
-      // Si nos pasamos, volvemos al inicio
-      newIndex = 0;
+      newIndex = 0; // vuelve al inicio si te pasas
     }
     setCurrentIndex(newIndex);
   };
 
+  // Maneja la flecha de anterior
   const handlePrev = () => {
     let newIndex = currentIndex - itemsPerSlide;
     if (newIndex < 0) {
-      // Si retrocedemos de 0, vamos al "final"
+      // si retrocedemos más allá del inicio
       const remainder = movies.length % itemsPerSlide;
-      if (remainder === 0) {
-        newIndex = movies.length - itemsPerSlide;
-      } else {
-        newIndex = movies.length - remainder;
-      }
+      newIndex = remainder === 0
+        ? movies.length - itemsPerSlide
+        : movies.length - remainder;
     }
     setCurrentIndex(newIndex);
+  };
+
+  // Cuando se hace clic en cualquier portada
+  const handlePosterClick = () => {
+    // Abrimos el reproductor de video
+    setShowPlayer(true);
+  };
+
+  // Para cerrar el reproductor
+  const closePlayer = () => {
+    setShowPlayer(false);
   };
 
   return (
     <div className="movieRow">
       <h2>{title}</h2>
+
       <div className="movieRow__wrapper">
         {/* Flecha Izquierda */}
         <button className="movieRow__arrow movieRow__arrow--left" onClick={handlePrev}>
@@ -67,6 +80,7 @@ const MovieRow = ({ title, categoryName }) => {
                   className="movieRow__poster"
                   src={movie.posterUrl}
                   alt={movie.title}
+                  onClick={handlePosterClick} // Al hacer clic, abrimos el video
                 />
               </div>
             ))}
@@ -78,6 +92,24 @@ const MovieRow = ({ title, categoryName }) => {
           &#10095;
         </button>
       </div>
+
+      {/* Renderiza el reproductor si showPlayer es true */}
+      {showPlayer && (
+        <div className="videoModal">
+          <div className="videoModal__overlay" onClick={closePlayer}></div>
+          <div className="videoModal__content">
+            <button className="videoModal__closeBtn" onClick={closePlayer}>
+              X
+            </button>
+            <video
+              className="videoModal__player"
+              src="/VIDEO.mp4"
+              autoPlay
+              controls
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

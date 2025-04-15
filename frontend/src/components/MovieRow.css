@@ -65,3 +65,56 @@
 .movieRow__arrow--right {
   margin-left: 10px;
 }
+
+
+/* Estilos para el modal de video */
+.videoModal {
+  position: fixed;       /* Para que quede sobre toda la pantalla */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;         /* Alto para estar delante de cualquier otro elemento */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.videoModal__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+  cursor: pointer;               /* Para que al hacer click también se cierre */
+}
+
+.videoModal__content {
+  position: relative;
+  max-width: 80%;
+  max-height: 80%;
+  z-index: 10000;       /* Más alto que el overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Para situar el botón de cierre arriba a la derecha */
+}
+
+/* Botón de cierre */
+.videoModal__closeBtn {
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+/* Estilo del video en sí */
+.videoModal__player {
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 60px); /* Para que no se desborde de la pantalla */
+  background-color: #000;        /* Fondo negro mientras carga */
+}
+
